@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">MyAmbulance</string>
+    <string name="btn_start">Get Started</string>
+    <string name="txt_login">Please enter details below to continue</string>
+    <string name="login">Login</string>
+    <string name="regist">Don\'t have an account? Sign Up</string>
+    <string name="txt_regist">Please enter details below to sign you up</string>
+    <string name="register">Register</string>
+    <string name="history_a">Ambulance Gratis yang disediakan oleh pemerintah kota Bandar Lampung untuk memudahkan masyarakat dalam pemesanan Ambulance</string>
+    <string name="history_b">Ambulance Gratis yang disediakan oleh pemerintah kota Bandar Lampung untuk memudahkan masyarakat dalam pemesanan Ambulance</string>
+    <string name="history_c">Ambulance Gratis yang disediakan oleh pemerintah kota Bandar Lampung untuk memudahkan masyarakat dalam pemesanan Ambulance</string>
+    <string name="lokasi_terkini">Jl. Pelita Jaya No.10 Kecamatan Kedaton, Bandar Lampung, 35142</string>
+    <string name="jdl_lokasi">Your Current Location</string>
+    <string name="history">Your History</string>
+    <string name="btn_ambulance">Call An Ambulance</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
