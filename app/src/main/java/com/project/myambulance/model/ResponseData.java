@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class ResponseList<T> {
+public class ResponseData<T> {
     @SerializedName("status")
     @Expose
     private Boolean status;
@@ -14,14 +14,13 @@ public class ResponseList<T> {
     private String message;
     @SerializedName("data")
     @Expose
-    private List<T> data;
+    private T data;
 
-
-    public boolean getStatus() {
+    public Boolean getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(Boolean status) {
         this.status = status;
     }
 
@@ -33,12 +32,11 @@ public class ResponseList<T> {
         this.message = message;
     }
 
-    public List<T> getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(List<T> data) {
+    public void setData(T data) {
         this.data = data;
     }
-
 }

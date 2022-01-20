@@ -19,6 +19,7 @@ import com.project.myambulance.databinding.ActivityMainBinding;
 import com.project.myambulance.model.DataCovid;
 import com.project.myambulance.model.History;
 import com.project.myambulance.model.ResponseList;
+import com.project.myambulance.pref.SessionManager;
 import com.project.myambulance.remote.Network;
 
 import java.util.List;
@@ -42,11 +43,11 @@ public class MainActivity extends AppCompatActivity {
         View view = activityMainBinding.getRoot();
         setContentView(view);
 
-        activityMainBinding.fbHistory.setOnClickListener(view1 -> {
-            Intent Hstry = new Intent(MainActivity.this, HistoryActivity.class);
-            startActivity(Hstry);
-            finish();
-        });
+//        activityMainBinding.fbHistory.setOnClickListener(view1 -> {
+//            Intent Hstry = new Intent(MainActivity.this, HistoryActivity.class);
+//            startActivity(Hstry);
+//            finish();
+//        });
 
         /*activityMainBinding.btmMenu.setOnItemSelectedListener(item -> {
 
@@ -76,9 +77,18 @@ public class MainActivity extends AppCompatActivity {
     }*/
 
     private void onInit() {
+        activityMainBinding.fbHistory.setOnClickListener(view -> logout());
         getCovid();
 
     }
+
+    private void logout() {
+        SessionManager sessionManager = new SessionManager(this);
+        sessionManager.logout(this);
+        startActivity(new Intent(this, LoginActivity.class));
+        finish();
+    }
+
     private void getCovid() {
         Network.provideApiService().getCovid().enqueue(new Callback<DataCovid>() {
             @Override
