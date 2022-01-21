@@ -18,8 +18,9 @@ import retrofit2.http.Query;
 
 public interface Routes {
 
-    @GET(RemoteEndpoint.ENDPOINT_GET_HISTORY)
-    Call<ResponseList<History>> getHistory();
+    @FormUrlEncoded
+    @POST(RemoteEndpoint.ENDPOINT_GET_HISTORY)
+    Call<ResponseList<History>> getHistory(@Field("no_ktp") String no_ktp);
 
     @GET(RemoteEndpoint.ENDPOINT_GET_COVID)
     Call<DataCovid> getCovid();
@@ -28,4 +29,11 @@ public interface Routes {
     @POST(RemoteEndpoint.ENDPOINT_LOGIN)
     Call<ResponseData<User>> loginUser(@Field("username") String username,
                                        @Field("password") String password);
+
+    @FormUrlEncoded
+    @POST(RemoteEndpoint.ENDPOINT_ORDER)
+    Call<ResponseData<User>> order(@Field("no_ktp") String no_ktp,
+                                   @Field("alamat") String alamat);
+
+
 }

@@ -15,4 +15,6 @@
     <string name="btn_ambulance">Call An Ambulance</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="enable_gps_setting">needgps</string>
+    <string name="location_content">This app wants to change your device settings use GPS,Wi-Fi and cell networks for your location</string>
 </resources>

@@ -13,9 +13,12 @@ import com.project.myambulance.adapter.HistoryAdapter;
 import com.project.myambulance.databinding.ActivityHistoryBinding;
 import com.project.myambulance.model.History;
 import com.project.myambulance.model.ResponseList;
+import com.project.myambulance.model.User;
+import com.project.myambulance.pref.SessionManager;
 import com.project.myambulance.remote.Network;
 
 import java.util.List;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -42,7 +45,7 @@ public class HistoryActivity extends AppCompatActivity {
         activityHistoryBinding.fbBack.setOnClickListener(view -> {
             Intent back = new Intent(HistoryActivity.this, MainActivity.class);
             startActivity(back);
-
+            finish();
         });
     }
 
@@ -55,7 +58,7 @@ public class HistoryActivity extends AppCompatActivity {
     }
 
     private void getData() {
-        Network.provideApiService().getHistory().enqueue(new Callback<ResponseList<History>>() {
+        Network.provideApiService().getHistory(Objects.requireNonNull(SessionManager.getUser(this)).getNo_ktp()).enqueue(new Callback<ResponseList<History>>() {
             @Override
             public void onResponse(Call<ResponseList<History>> call, Response<ResponseList<History>> response) {
                 if (response.isSuccessful()) {

@@ -15,96 +15,7 @@
 <!--        app:layout_constraintEnd_toEndOf="parent"-->
 <!--        app:layout_constraintStart_toStartOf="parent"-->
 <!--        app:layout_constraintTop_toTopOf="parent" />-->
-  <!--  <LinearLayout
-        android:id="@+id/ll_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintVertical_bias="0.03"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:gravity="center"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/profil"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Welcome,\nCandra Kurnia Nugraha"
-            android:textSize="16sp"
-            android:layout_marginStart="8dp"
-            android:layout_weight="2"
-            android:fontFamily="@font/roboto_medium"/>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/clr_button"
-            android:layout_weight="0.5"
-            android:contentDescription="TODO"
-            android:src="@drawable/ic_bi_bell" />
-
-
-    </LinearLayout>
-
-    <RelativeLayout
-        android:id="@+id/rl1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ll_id"
-        app:layout_constraintVertical_bias="0"
-        android:layout_marginTop="16dp">
-
-        <TextView
-            android:id="@+id/tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/roboto_medium"
-            android:text="@string/jdl_lokasi"
-            android:textSize="16sp" />
-
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cv_loc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_below="@id/tv"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="0dp">
-
-            <TextView
-                android:id="@+id/tv_loc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginBottom="5dp"
-                android:fontFamily="@font/roboto"
-                android:text="@string/lokasi_terkini"
-                android:textSize="14sp"
-                app:drawableStartCompat="@drawable/ic_carbon_location"
-                android:drawablePadding="8dp"/>
-
-        </com.google.android.material.card.MaterialCardView>
-
-
-    </RelativeLayout>-->
     <LinearLayout
         android:id="@+id/ll_id"
         android:layout_width="match_parent"
@@ -352,11 +263,18 @@
 
             </TableLayout>
 
-        </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>-->
+
+<!--        <androidx.viewpager2.widget.ViewPager2-->
+<!--            android:id="@+id/vw"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            tools:listitem="@layout/item_list_history_user" />-->
 
     </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_pesan"
         android:layout_width="225dp"
         android:layout_height="225dp"
         android:fontFamily="@font/playfair_display_bold"

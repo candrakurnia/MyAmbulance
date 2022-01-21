@@ -34,7 +34,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull HistoryAdapter.ViewHolder holder, int position) {
         History data = list.get(position);
-        holder.itemListHistoryUserBinding.tvNama2.setText(data.getNama_driver());
+        holder.itemListHistoryUserBinding.tvNama2.setText(data.getUsername());
         holder.itemListHistoryUserBinding.tvPlat2.setText(data.getNo_plat());
         holder.itemListHistoryUserBinding.tvAlamat2.setText(data.getAlamat());
     }
