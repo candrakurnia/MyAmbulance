@@ -17,9 +17,11 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".DriverActivity"
+            android:exported="true" />
+        <activity
             android:name=".HistoryActivity"
-            android:exported="true"/>
-
+            android:exported="true" />
         <activity
             android:name=".RegisterActivity"
             android:exported="true" />
@@ -38,7 +40,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".MainActivity"
             android:exported="true" />
