@@ -2,6 +2,7 @@ package com.project.myambulance;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -28,6 +30,7 @@ import com.project.myambulance.databinding.ActivityMainBinding;
 import com.project.myambulance.helpers.UiHelper;
 import com.project.myambulance.model.DataCovid;
 import com.project.myambulance.model.ResponseData;
+import com.project.myambulance.model.ResponseList;
 import com.project.myambulance.model.User;
 import com.project.myambulance.pref.SessionManager;
 import com.project.myambulance.remote.Network;
@@ -46,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding activityMainBinding;
     private HistoryAdapter historyAdapter;
     private final String TAG = "MainActivity";
+    private AlertDialog.Builder builder;
     private boolean locationflag;
     private String alamatText;
     private UiHelper uiHelper;
@@ -127,34 +131,53 @@ public class MainActivity extends AppCompatActivity {
                 activityMainBinding.btnPesan.setOnClickListener(view -> onClick());
 
             }
+
+            private void onClick() {
+                builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setCancelable(true);
+                builder.setTitle("Konfirmasi");
+                builder.setMessage("Apakah Anda yakin ingin memesan Ambulance?");
+                builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Network.provideApiService().order((Objects.requireNonNull(SessionManager.getUser(MainActivity.this))).getNo_ktp(), alamatText).enqueue(new Callback<ResponseList<User>>() {
+                            @Override
+                            public void onResponse(Call<ResponseList<User>> call, Response<ResponseList<User>> response) {
+                                if (response.isSuccessful()) {
+                                    if (response.body() != null) {
+                                        if (response.body().getStatus()) {
+                                            startActivity(new Intent(MainActivity.this, DriverActivity.class));
+                                            Toast.makeText(MainActivity.this, "Berhasil yeay", Toast.LENGTH_SHORT).show();
+                                            finish();
+                                        } else {
+                                            Toast.makeText(MainActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                                        }
+                                    } else {
+                                        Toast.makeText(MainActivity.this, "Gagal Maning 1", Toast.LENGTH_SHORT).show();
+                                    }
+                                } else {
+                                    Toast.makeText(MainActivity.this, "Gagal Maning 2", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<ResponseList<User>> call, Throwable t) {
+                                Log.e(TAG, "onFailure: " + t.getLocalizedMessage());
+                            }
+                        });
+
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                    }
+                });
+                builder.show();
+
+            }
         };
 
-
-    private void onClick() {
-        Network.provideApiService().order(Objects.requireNonNull(SessionManager.getUser(this)).getNo_ktp(),alamatText).enqueue(new Callback<ResponseData<User>>() {
-            @Override
-            public void onResponse(Call<ResponseData<User>> call, Response<ResponseData<User>> response) {
-                if (response.isSuccessful()) {
-                    if (response.body() != null) {
-                        if (response.body().getStatus()) {
-                            Toast.makeText(MainActivity.this, "Berhasil yeay", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(MainActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    } else {
-                        Toast.makeText(MainActivity.this, "Gagal Maning 1", Toast.LENGTH_SHORT).show();
-                    }
-                } else {
-                    Toast.makeText(MainActivity.this, "Gagal Maning 2", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ResponseData<User>> call, Throwable t) {
-                Log.e(TAG, "onFailure: " + t.getLocalizedMessage());
-            }
-        });
-    }
 
     @SuppressLint("MissingPermission")
     private void requestLocationUpdates() {

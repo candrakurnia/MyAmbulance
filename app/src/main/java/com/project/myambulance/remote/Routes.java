@@ -32,7 +32,7 @@ public interface Routes {
 
     @FormUrlEncoded
     @POST(RemoteEndpoint.ENDPOINT_ORDER)
-    Call<ResponseData<User>> order(@Field("no_ktp") String no_ktp,
+    Call<ResponseList<User>> order(@Field("no_ktp") String no_ktp,
                                    @Field("alamat") String alamat);
 
     @FormUrlEncoded
