@@ -37,16 +37,14 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(view);
         onInit();
 
-
-        activityLoginBinding.tvRegist.setOnClickListener(view1 -> {
-            Intent login = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(login);
-            finish();
-        });
-
     }
 
     private void onInit() {
+        activityLoginBinding.tvRegist.setOnClickListener(view1 -> {
+            Intent login = new Intent(LoginActivity.this, RegisterActivity.class);
+            startActivity(login);
+            finish();
+        });
         activityLoginBinding.btnLogin.setOnClickListener(view -> {
             validation();
         });

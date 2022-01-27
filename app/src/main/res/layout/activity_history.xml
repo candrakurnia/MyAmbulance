@@ -34,14 +34,23 @@
 
             <TextView
                 android:id="@+id/tv2"
-                android:layout_width="match_parent"
+                android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_toEndOf="@id/fb_back"
                 android:fontFamily="@font/playfair_display_bold"
                 android:layout_gravity="center"
+                android:textAlignment="center"
                 android:text="@string/history"
                 android:textSize="20sp" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fb_logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:src="@drawable/ic_baseline_settings_24"
+                android:contentDescription="kembali" />
 
         </LinearLayout>
 

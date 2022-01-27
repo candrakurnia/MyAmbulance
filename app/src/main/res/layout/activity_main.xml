@@ -16,45 +16,67 @@
 <!--        app:layout_constraintStart_toStartOf="parent"-->
 <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/ll_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         app:layout_constraintVertical_bias="0.03"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:gravity="center"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imagepp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/profil"/>
 
-        <TextView
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Welcome,\nCandra Kurnia Nugraha"
-            android:textSize="16sp"
+            android:layout_marginTop="8dp"
             android:layout_marginStart="8dp"
-            android:layout_weight="2"
-            android:fontFamily="@font/roboto_medium"/>
+            android:layout_toStartOf="@+id/fb_history"
+            android:layout_toEndOf="@id/imagepp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="2"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Welcome ,"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="2"
+                android:fontFamily="@font/roboto_medium"
+                android:text="User name"
+                android:textSize="16sp" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fb_history"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/clr_button"
-            android:layout_weight="0.5"
             android:contentDescription="TODO"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="8dp"
             android:src="@drawable/ic_baseline_history_24" />
 
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/rl1"

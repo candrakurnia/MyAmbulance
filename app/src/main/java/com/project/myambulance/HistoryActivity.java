@@ -38,7 +38,17 @@ public class HistoryActivity extends AppCompatActivity {
         setContentView(view);
         onInit();
         back();
+        logout();
 
+    }
+
+    private void logout() {
+        activityHistoryBinding.fbLogout.setOnClickListener(view -> {
+            SessionManager sessionManager = new SessionManager(this);
+            sessionManager.logout(this);
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+        });
     }
 
     private void back() {

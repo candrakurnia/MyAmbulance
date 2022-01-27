@@ -37,7 +37,7 @@ public interface Routes {
 
     @FormUrlEncoded
     @POST(RemoteEndpoint.ENDPOINT_REGISTER)
-    Call<ResponseData<User>> register(@Field("username") String username,
+    Call<ResponseList<User>> register(@Field("username") String username,
                                       @Field("password") String password,
                                       @Field("no_telpon") String no_telpon,
                                       @Field("no_ktp") String no_ktp,

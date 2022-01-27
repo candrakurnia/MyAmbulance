@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.15"
+        app:layout_constraintVertical_bias="0.1"
         app:srcCompat="@drawable/ic_logo3" />
 
     <TextView
@@ -78,8 +78,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
         app:layout_constraintVertical_bias="0.02"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+        app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_password"
@@ -134,7 +135,7 @@
             android:drawablePadding="8dp"
             android:fontFamily="@font/roboto"
             android:hint="nomor KTP"
-            android:inputType="textPassword" />
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -157,11 +158,11 @@
             android:drawablePadding="8dp"
             android:fontFamily="@font/roboto"
             android:hint="nomor KK"
-            android:inputType="textPassword" />
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_login"
+        android:id="@+id/btn_register"
         android:layout_width="150dp"
         android:layout_height="60dp"
         android:fontFamily="@font/roboto_medium"

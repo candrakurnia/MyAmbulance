@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onInit() {
+        activityMainBinding.tvUsername.setText(Objects.requireNonNull(SessionManager.getUser(this)).getUsername());
         locationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         uiHelper = new UiHelper(this);
         locationRequest = uiHelper.getLocationRequest();

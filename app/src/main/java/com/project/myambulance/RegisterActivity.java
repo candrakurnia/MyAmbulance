@@ -1,18 +1,19 @@
 package com.project.myambulance;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.project.myambulance.databinding.ActivityRegisterBinding;
-import com.project.myambulance.model.ResponseData;
+import com.project.myambulance.model.ResponseList;
 import com.project.myambulance.model.User;
 import com.project.myambulance.remote.Network;
 
+import java.util.List;
 import java.util.Objects;
 
 import retrofit2.Call;
@@ -27,15 +28,14 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityRegisterBinding activityRegisterBinding = ActivityRegisterBinding.inflate(getLayoutInflater());
+        activityRegisterBinding = ActivityRegisterBinding.inflate(getLayoutInflater());
         View view = activityRegisterBinding.getRoot();
         setContentView(view);
-
         onInit();
     }
 
     private void onInit() {
-        activityRegisterBinding.btnLogin.setOnClickListener(view -> validation());
+        activityRegisterBinding.btnRegister.setOnClickListener(view -> validation());
     }
 
     private void validation() {
@@ -63,13 +63,13 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void postRegister(String username, String password, String no_telpon, String no_kk, String no_ktp) {
-        Network.provideApiService().register(username, password, no_telpon, no_kk, no_ktp).enqueue(new Callback<ResponseData<User>>() {
+        Network.provideApiService().register(username, password, no_telpon, no_kk, no_ktp).enqueue(new Callback<ResponseList<User>>() {
             @Override
-            public void onResponse(Call<ResponseData<User>> call, Response<ResponseData<User>> response) {
+            public void onResponse(Call<ResponseList<User>> call, Response<ResponseList<User>> response) {
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
                         if (response.body().getStatus()) {
-                            User user = response.body().getData();
+                            List<User> user = response.body().getData();
                             initLogin(user);
                         } else {
                             Toast.makeText(RegisterActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
@@ -83,13 +83,13 @@ public class RegisterActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<ResponseData<User>> call, Throwable t) {
+            public void onFailure(Call<ResponseList<User>> call, Throwable t) {
                 Log.e(TAG, t.getLocalizedMessage());
             }
         });
     }
 
-    private void initLogin(User user) {
+    private void initLogin(List<User> user) {
         Toast.makeText(RegisterActivity.this, "Registrasi Berhasil", Toast.LENGTH_SHORT).show();
         Intent login = new Intent(this, LoginActivity.class);
         startActivity(login);
