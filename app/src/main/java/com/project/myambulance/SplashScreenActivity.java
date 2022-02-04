@@ -24,7 +24,7 @@ public class SplashScreenActivity extends AppCompatActivity {
     }
 
     private void initSplash() {
-        new Handler().postDelayed((Runnable) () -> {
+        new Handler().postDelayed(() -> {
             Boolean isLogin = SessionManager.getIsLogin(this);
             if (isLogin) {
                 initMain();
