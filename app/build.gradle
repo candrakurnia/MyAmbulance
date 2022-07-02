@@ -11,7 +11,7 @@ android {
         targetSdk 31
         versionCode 1
         versionName "1.0"
-        buildConfigField 'String', 'BASE_URL', "\" http://192.168.43.152/dbambulance/\""
+        buildConfigField 'String', 'BASE_URL', "\"http://192.168.191.152/dbambulance/\""
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -29,6 +29,8 @@ android {
     buildFeatures {
         viewBinding true
     }
+    compileSdkVersion 32
+    buildToolsVersion '32.0.0'
 }
 
 dependencies {

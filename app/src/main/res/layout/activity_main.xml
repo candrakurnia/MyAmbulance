@@ -69,10 +69,10 @@
             android:id="@+id/fb_history"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/clr_button"
-            android:contentDescription="TODO"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="8dp"
+            android:background="@color/clr_button"
+            android:contentDescription="TODO"
             android:src="@drawable/ic_baseline_history_24" />
 
 
@@ -285,13 +285,13 @@
 
             </TableLayout>
 
-        </androidx.cardview.widget.CardView>-->
-
-<!--        <androidx.viewpager2.widget.ViewPager2-->
-<!--            android:id="@+id/vw"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            tools:listitem="@layout/item_list_history_user" />-->
+        </androidx.cardview.widget.CardView>
+<!--
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vw"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/item_list_history_user" />-->
 
     </LinearLayout>
 

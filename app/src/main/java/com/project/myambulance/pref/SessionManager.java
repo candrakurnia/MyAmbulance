@@ -9,6 +9,8 @@ import android.text.TextUtils;
 import com.google.gson.Gson;
 import com.project.myambulance.model.User;
 
+import java.util.List;
+
 public class SessionManager {
     private final SharedPreferences.Editor editor;
 

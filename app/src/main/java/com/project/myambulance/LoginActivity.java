@@ -6,9 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.project.myambulance.databinding.ActivityLoginBinding;
@@ -18,6 +15,7 @@ import com.project.myambulance.model.User;
 import com.project.myambulance.pref.SessionManager;
 import com.project.myambulance.remote.Network;
 
+import java.util.List;
 import java.util.Objects;
 
 import retrofit2.Call;
@@ -71,9 +69,13 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(Call<ResponseData<User>> call, Response<ResponseData<User>> response) {
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
-                        User user = response.body().getData();
-                        if (user != null) {
-                            initHome(user);
+                        if (response.body().getStatus()) {
+                            User user = response.body().getData();
+                            if (user != null){
+                                initHome(user);
+                            } else {
+                                Toast.makeText(LoginActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                            }
                         } else {
                             Toast.makeText(LoginActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                         }
