@@ -2,19 +2,16 @@ package com.project.myambulance.remote;
 
 import com.project.myambulance.model.DataCovid;
 import com.project.myambulance.model.History;
+import com.project.myambulance.model.Lokasi;
 import com.project.myambulance.model.ResponseData;
 import com.project.myambulance.model.ResponseList;
 import com.project.myambulance.model.User;
 
-import java.util.List;
-
 import retrofit2.Call;
-import retrofit2.Response;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.Query;
 
 public interface Routes {
 
@@ -32,8 +29,8 @@ public interface Routes {
 
     @FormUrlEncoded
     @POST(RemoteEndpoint.ENDPOINT_ORDER)
-    Call<ResponseList<User>> order(@Field("no_ktp") String no_ktp,
-                                   @Field("alamat") String alamat);
+    Call<ResponseList<Lokasi>> order(@Field("no_ktp") String no_ktp,
+                                     @Field("alamat") String alamat);
 
     @FormUrlEncoded
     @POST(RemoteEndpoint.ENDPOINT_REGISTER)

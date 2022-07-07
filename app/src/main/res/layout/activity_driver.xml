@@ -7,6 +7,7 @@
     android:background="@drawable/blobhaikei2"
     tools:context=".DriverActivity">
 
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

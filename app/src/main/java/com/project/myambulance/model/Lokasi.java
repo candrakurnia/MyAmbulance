@@ -4,9 +4,9 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Lokasi {
-    @SerializedName("id_loc_user")
+    @SerializedName("id_lokasi")
     @Expose
-    private Integer id_loc_user;
+    private Integer id_lokasi;
     @SerializedName("no_ktp")
     @Expose
     private String no_ktp;
@@ -17,19 +17,19 @@ public class Lokasi {
     @Expose
     private Integer status;
 
-    public Lokasi(Integer id_loc_user, String no_ktp, String alamat, Integer status) {
-        this.id_loc_user = id_loc_user;
+    public Lokasi(Integer id_lokasi, String no_ktp, String alamat, Integer status) {
+        this.id_lokasi = id_lokasi;
         this.no_ktp = no_ktp;
         this.alamat = alamat;
         this.status = status;
     }
 
-    public Integer getId_loc_user() {
-        return id_loc_user;
+    public Integer getid_lokasi() {
+        return id_lokasi;
     }
 
-    public void setId_loc_user(Integer id_loc_user) {
-        this.id_loc_user = id_loc_user;
+    public void setId_lokasi(Integer id_lokasi) {
+        this.id_lokasi = id_lokasi;
     }
 
     public String getNo_ktp() {

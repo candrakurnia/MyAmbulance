@@ -5,13 +5,14 @@
       <map>
         <entry key="..\:/Android/MyAmbulance/app/src/main/res/layout/activity_main.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Candra/AndroidStudioProjects/MyAmbulance/app/src/main/res/drawable/ic_baseline_chevron_right_24.xml" value="0.23692307692307693" />
+        <entry key="..\:/Users/Candra/AndroidStudioProjects/MyAmbulance/app/src/main/res/drawable/ic_baseline_history_24.xml" value="0.1095" />
         <entry key="..\:/Users/Candra/AndroidStudioProjects/MyAmbulance/app/src/main/res/drawable/ic_logo.xml" value="0.39692307692307693" />
         <entry key="..\:/Users/Candra/AndroidStudioProjects/MyAmbulance/app/src/main/res/drawable/ic_logo2.xml" value="0.23055555555555557" />
         <entry key="..\:/Users/Candra/AndroidStudioProjects/MyAmbulance/app/src/main/res/drawable/ic_profil.xml" value="0.23055555555555557" />
-        <entry key="..\:/Users/Candra/AndroidStudioProjects/MyAmbulance/app/src/main/res/layout/activity_driver.xml" value="0.5" />
-        <entry key="..\:/Users/Candra/AndroidStudioProjects/MyAmbulance/app/src/main/res/layout/activity_history.xml" value="0.33" />
+        <entry key="..\:/Users/Candra/AndroidStudioProjects/MyAmbulance/app/src/main/res/layout/activity_driver.xml" value="0.25" />
+        <entry key="..\:/Users/Candra/AndroidStudioProjects/MyAmbulance/app/src/main/res/layout/activity_history.xml" value="0.2" />
         <entry key="..\:/Users/Candra/AndroidStudioProjects/MyAmbulance/app/src/main/res/layout/activity_login.xml" value="0.25" />
-        <entry key="..\:/Users/Candra/AndroidStudioProjects/MyAmbulance/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/Candra/AndroidStudioProjects/MyAmbulance/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/Candra/AndroidStudioProjects/MyAmbulance/app/src/main/res/layout/activity_onboarding.xml" value="0.25" />
         <entry key="..\:/Users/Candra/AndroidStudioProjects/MyAmbulance/app/src/main/res/layout/activity_register.xml" value="0.25" />
         <entry key="..\:/Users/Candra/AndroidStudioProjects/MyAmbulance/app/src/main/res/layout/activity_splash_screen.xml" value="0.2" />
@@ -20,6 +21,7 @@
         <entry key="..\:/Users/Candra/AndroidStudioProjects/MyAmbulance/app/src/main/res/layout/fragment_home.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Candra/AndroidStudioProjects/MyAmbulance/app/src/main/res/layout/fragment_settings.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Candra/AndroidStudioProjects/MyAmbulance/app/src/main/res/layout/item_list_history_user.xml" value="0.25" />
+        <entry key="..\:/Users/Candra/AndroidStudioProjects/MyAmbulance/app/src/main/res/layout/layout_nocon.xml" value="0.53625" />
         <entry key="..\:/Users/Candra/AndroidStudioProjects/MyAmbulance/app/src/main/res/layout/viewpager_item.xml" value="0.33" />
         <entry key="..\:/Users/Candra/AndroidStudioProjects/MyAmbulance/app/src/main/res/menu/bottom_nav_menu.xml" value="0.22447916666666667" />
       </map>

@@ -30,6 +30,7 @@ import com.project.myambulance.adapter.HistoryAdapter;
 import com.project.myambulance.databinding.ActivityMainBinding;
 import com.project.myambulance.helpers.UiHelper;
 import com.project.myambulance.model.DataCovid;
+import com.project.myambulance.model.Lokasi;
 import com.project.myambulance.model.ResponseData;
 import com.project.myambulance.model.ResponseList;
 import com.project.myambulance.model.User;
@@ -134,20 +135,60 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
+
+            /*private void onClick() {
+                Network.provideApiService().order(SessionManager.getUser(MainActivity.this).getNo_ktp(),alamatText)
+                        .enqueue(new Callback<ResponseList<Lokasi>>() {
+                            @Override
+                            public void onResponse(Call<ResponseList<Lokasi>> call, Response<ResponseList<Lokasi>> response) {
+                                if (response.isSuccessful()) {
+                                    if (response.body() != null) {
+                                        if (response.body().getStatus()) {
+                                            List<Lokasi> lokasi = response.body().getData();
+                                            if (lokasi != null) {
+                                                startActivity(new Intent(MainActivity.this, DriverActivity.class));
+                                                Toast.makeText(MainActivity.this, "Berhasil yeay", Toast.LENGTH_SHORT).show();
+                                                finish();
+                                            } else {
+                                                Toast.makeText(MainActivity.this, "lokasi kosong", Toast.LENGTH_SHORT).show();
+                                            }
+                                        } else {
+                                            Toast.makeText(MainActivity.this, "status null", Toast.LENGTH_SHORT).show();
+                                        }
+                                    } else {
+                                        Toast.makeText(MainActivity.this, "data kosong", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<ResponseList<Lokasi>> call, Throwable t) {
+                                Log.e(TAG, "onFailure: " + t.getLocalizedMessage());
+                            }
+                        });
+            }*/
+
             private void onClick() {
                 builder = new AlertDialog.Builder(MainActivity.this);
                 builder.setCancelable(true);
                 builder.setTitle("Konfirmasi");
                 builder.setMessage("Apakah Anda yakin ingin memesan Ambulance?");
-                builder.setPositiveButton("Ya", (dialogInterface, i) -> Network.provideApiService().order((Objects.requireNonNull(SessionManager.getUser(MainActivity.this))).getNo_ktp(), alamatText).enqueue(new Callback<ResponseList<User>>() {
+                builder.setPositiveButton("Ya", (dialogInterface, i) -> Network.provideApiService().order((Objects.requireNonNull(SessionManager.getUser(MainActivity.this))).getNo_ktp(), alamatText)
+                        .enqueue(new Callback<ResponseList<Lokasi>>() {
                     @Override
-                    public void onResponse(Call<ResponseList<User>> call, Response<ResponseList<User>> response) {
+                    public void onResponse(Call<ResponseList<Lokasi>> call, Response<ResponseList<Lokasi>> response) {
                         if (response.isSuccessful()) {
                             if (response.body() != null) {
                                 if (response.body().getStatus()) {
-                                    startActivity(new Intent(MainActivity.this, DriverActivity.class));
-                                    Toast.makeText(MainActivity.this, "Berhasil yeay", Toast.LENGTH_SHORT).show();
-                                    finish();
+                                    List<Lokasi> lokasi = response.body().getData();
+                                        if (lokasi != null) {
+                                            startActivity(new Intent(MainActivity.this, DriverActivity.class));
+                                            Toast.makeText(MainActivity.this, "Berhasil yeay", Toast.LENGTH_SHORT).show();
+                                            finish();
+                                    } else {
+                                            Toast.makeText(MainActivity.this, "alamat kosong", Toast.LENGTH_SHORT).show();
+                                        }
+
                                 } else {
                                     Toast.makeText(MainActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                                 }
@@ -160,7 +201,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onFailure(Call<ResponseList<User>> call, Throwable t) {
+                    public void onFailure(Call<ResponseList<Lokasi>> call, Throwable t) {
                         Log.e(TAG, "onFailure: " + t.getLocalizedMessage());
                     }
                 }));
