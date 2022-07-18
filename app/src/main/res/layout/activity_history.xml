@@ -61,7 +61,6 @@
         </Toolbar>
 
 
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/vw"
             android:layout_width="match_parent"

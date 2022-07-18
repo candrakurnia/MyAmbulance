@@ -19,4 +19,5 @@
     <string name="confirmation">Konfirmasi</string>
     <string name="content">Apakah anda yakin ingin memesan ambulance?</string>
     <string name="location_content">This app wants to change your device settings use GPS,Wi-Fi and cell networks for your location</string>
+    <string name="text_onBoarding">Aplikasi yang dibuat untuk memudahkan masyarakat dalam memesan ambulance gratis yang disediakan oleh pemerintah kota Bandar Lampung.</string>
 </resources>

@@ -18,15 +18,20 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:elevation="2dp"
+        style="@style/ToolbarContent"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="start"
+            android:src="@drawable/ic_logo">
+
+        </de.hdodenhof.circleimageview.CircleImageView>
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="wrap_content"
@@ -37,97 +42,22 @@
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_weight="2"
-                android:fontFamily="@font/roboto_medium"
-                android:text="Welcome ,"
-                android:textSize="16sp" />
+                style="@style/TextHeader"
+                android:text="Welcome ," />
 
             <TextView
                 android:id="@+id/tv_username"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_weight="2"
-                android:fontFamily="@font/raleway"
-                android:text="User name"
-                android:textSize="20sp" />
+                style="@style/TextHeader"
+                android:text="User name" />
 
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
-        <ImageView
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fb_history"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_margin="16dp"
-            android:background="@drawable/ic_baseline_history_24"
-            android:clickable="true" />
+            style="@style/FabSettings"
+            android:src="@drawable/ic_baseline_settings_24" />
     </androidx.appcompat.widget.Toolbar>
-    <!--    <RelativeLayout-->
-    <!--        android:id="@+id/ll_id"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        app:layout_constraintVertical_bias="0.03"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        android:layout_marginStart="16dp"-->
-    <!--        android:layout_marginEnd="16dp">-->
-
-    <!--        <de.hdodenhof.circleimageview.CircleImageView-->
-    <!--            android:id="@+id/imagepp"-->
-    <!--            android:layout_width="wrap_content"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:src="@drawable/profil"/>-->
-
-    <!--        <androidx.appcompat.widget.LinearLayoutCompat-->
-    <!--            android:layout_width="wrap_content"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:layout_marginStart="8dp"-->
-    <!--            android:layout_marginTop="8dp"-->
-    <!--            android:layout_toStartOf="@+id/fb_history"-->
-    <!--            android:layout_toEndOf="@id/imagepp"-->
-    <!--            android:orientation="vertical">-->
-
-    <!--            <TextView-->
-    <!--                android:layout_width="wrap_content"-->
-    <!--                android:layout_height="wrap_content"-->
-    <!--                android:layout_marginStart="8dp"-->
-    <!--                android:layout_weight="2"-->
-    <!--                android:fontFamily="@font/roboto_medium"-->
-    <!--                android:text="Welcome ,"-->
-    <!--                android:textSize="16sp" />-->
-
-    <!--            <TextView-->
-    <!--                android:id="@+id/tv_username"-->
-    <!--                android:layout_width="wrap_content"-->
-    <!--                android:layout_height="wrap_content"-->
-    <!--                android:layout_marginStart="8dp"-->
-    <!--                android:layout_weight="2"-->
-    <!--                android:fontFamily="@font/roboto_medium"-->
-    <!--                android:text="User name"-->
-    <!--                android:textSize="16sp" />-->
-
-
-    <!--        </androidx.appcompat.widget.LinearLayoutCompat>-->
-
-    <!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-    <!--            android:id="@+id/fb_history"-->
-    <!--            android:layout_width="wrap_content"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:layout_alignParentEnd="true"-->
-    <!--            android:layout_marginEnd="8dp"-->
-    <!--            android:background="@color/clr_button"-->
-    <!--            android:contentDescription="TODO"-->
-    <!--            android:src="@drawable/ic_baseline_history_24" />-->
-
-
-    <!--    </RelativeLayout>-->
 
     <RelativeLayout
         android:id="@+id/rl1"
@@ -348,12 +278,8 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_pesan"
-        android:layout_width="225dp"
-        android:layout_height="225dp"
-        android:fontFamily="@font/playfair_display_bold"
+        style="@style/ButtonPesan"
         android:text="@string/btn_ambulance"
-        android:textSize="20sp"
-        app:cornerRadius="120dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
