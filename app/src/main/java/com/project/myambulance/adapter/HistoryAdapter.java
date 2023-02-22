@@ -38,6 +38,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
         holder.itemListHistoryUserBinding.tvNama2.setText(data.getUsername());
         holder.itemListHistoryUserBinding.tvPlat2.setText(data.getNo_plat());
         holder.itemListHistoryUserBinding.tvAlamat2.setText(data.getAlamat());
+        holder.itemListHistoryUserBinding.tvWaktu.setText(data.getWaktu());
     }
 
     @Override

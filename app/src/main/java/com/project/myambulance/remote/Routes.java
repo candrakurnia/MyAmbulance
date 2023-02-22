@@ -1,6 +1,7 @@
 package com.project.myambulance.remote;
 
 import com.project.myambulance.model.DataCovid;
+import com.project.myambulance.model.Driver;
 import com.project.myambulance.model.History;
 import com.project.myambulance.model.Lokasi;
 import com.project.myambulance.model.ResponseData;
@@ -39,4 +40,9 @@ public interface Routes {
                                       @Field("no_telpon") String no_telpon,
                                       @Field("no_ktp") String no_ktp,
                                       @Field("no_kk") String no_kk);
+
+    @FormUrlEncoded
+    @POST(RemoteEndpoint.ENDPOINT_DRIVER)
+    Call<ResponseData<Driver>> driver(@Field("no_ktp") String no_ktp);
+
 }

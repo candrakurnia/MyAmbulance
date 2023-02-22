@@ -101,14 +101,8 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_login"
-                    android:layout_width="150dp"
-                    android:layout_height="60dp"
-                    android:fontFamily="@font/roboto_medium"
                     android:text="@string/login"
-                    android:textAllCaps="false"
-                    android:textSize="18sp"
-                    android:theme="@style/Mybuttontheme"
-
+                    style="@style/ButtonLogin"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

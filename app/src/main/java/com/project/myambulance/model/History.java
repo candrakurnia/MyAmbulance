@@ -34,8 +34,11 @@ public class History {
     @SerializedName("alamat")
     @Expose
     private String alamat;
+    @SerializedName("waktu")
+    @Expose
+    private String waktu;
 
-    public History(Integer id_history, String no_ktp, String id_loc_user, String id_driver, String username, String password, String no_telpon, String no_kk, String no_plat, String alamat) {
+    public History(Integer id_history, String no_ktp, String id_loc_user, String id_driver, String username, String password, String no_telpon, String no_kk, String no_plat, String alamat, String waktu) {
         this.id_history = id_history;
         this.no_ktp = no_ktp;
         this.id_loc_user = id_loc_user;
@@ -46,6 +49,11 @@ public class History {
         this.no_kk = no_kk;
         this.no_plat = no_plat;
         this.alamat = alamat;
+        this.waktu = waktu;
+    }
+
+    public String getWaktu() {
+        return waktu;
     }
 
     public String getNo_plat() {

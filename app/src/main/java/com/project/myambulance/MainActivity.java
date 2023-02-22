@@ -2,7 +2,6 @@ package com.project.myambulance;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
@@ -13,6 +12,7 @@ import android.os.Looper;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -30,10 +30,9 @@ import com.project.myambulance.adapter.HistoryAdapter;
 import com.project.myambulance.databinding.ActivityMainBinding;
 import com.project.myambulance.helpers.UiHelper;
 import com.project.myambulance.model.DataCovid;
+import com.project.myambulance.model.History;
 import com.project.myambulance.model.Lokasi;
-import com.project.myambulance.model.ResponseData;
 import com.project.myambulance.model.ResponseList;
-import com.project.myambulance.model.User;
 import com.project.myambulance.pref.SessionManager;
 import com.project.myambulance.remote.Network;
 
@@ -57,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
     private UiHelper uiHelper;
     private LocationRequest locationRequest;
     private FusedLocationProviderClient locationProviderClient;
+    private RelativeLayout lynocon;
 
 
     @Override
@@ -66,18 +66,62 @@ public class MainActivity extends AppCompatActivity {
         activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
         ConstraintLayout view = activityMainBinding.getRoot();
         setContentView(view);
-
-        activityMainBinding.fbHistory.setOnClickListener(view1 -> {
-            Intent Hstry = new Intent(MainActivity.this, HistoryActivity.class);
-            startActivity(Hstry);
-            finish();
-        });
-
         onInit();
-
+        checkHistory();
+        onLogout();
     }
 
+    private void onLogout() {
+        activityMainBinding.fbHistory.setOnClickListener(view -> {
+            SessionManager sessionManager = new SessionManager(this);
+            sessionManager.logout(this);
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            finish();
+        });
+    }
+
+    private void checkHistory() {
+        historyAdapter = new HistoryAdapter();
+        activityMainBinding.vw.setAdapter(historyAdapter);
+        getData();
+    }
+
+    private void getData() {
+        Network.provideApiService().getHistory(Objects.requireNonNull(SessionManager.getUser(this)).getNo_ktp()).enqueue(new Callback<ResponseList<History>>() {
+            @Override
+            public void onResponse(Call<ResponseList<History>> call, Response<ResponseList<History>> response) {
+                if (response.isSuccessful()) {
+                    if (response.body() != null) {
+                        if (response.body().getStatus()) {
+                            if (response.body().getData() != null) {
+                                activityMainBinding.tvNoData.setVisibility(View.GONE);
+                                List<History> data = response.body().getData();
+                                historyAdapter.setData(data);
+                            } else {
+                                Toast.makeText(MainActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                                Log.i("error", "gagal");
+                            }
+                        } else {
+                            Log.i("error", "gagal");
+                        }
+                    } else {
+                        Log.i("error", "gagal");
+                    }
+                } else {
+                    Log.i("error", "gagal");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseList<History>> call, Throwable t) {
+                Log.e("error", t.getLocalizedMessage());
+            }
+        });
+    }
+
+
     private void onInit() {
+        activityMainBinding.tvNoData.setVisibility(View.VISIBLE);
         activityMainBinding.tvUsername.setText(Objects.requireNonNull(SessionManager.getUser(this)).getUsername());
         locationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         uiHelper = new UiHelper(this);
@@ -86,16 +130,11 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Play Services did not installed!", Toast.LENGTH_SHORT).show();
             finish();
         } else requestLocationUpdates();
-//        activityMainBinding.fbHistory.setOnClickListener(view -> logout());
-        getCovid();
-
-//        historyAdapter = new HistoryAdapter();
-//        activityMainBinding.vw.setAdapter(historyAdapter);
-//        getData();
-
     }
 
-        final LocationCallback locationCallback = new LocationCallback() {
+
+
+    final LocationCallback locationCallback = new LocationCallback() {
             @Override
             public void onLocationResult(@NonNull LocationResult locationResult) {
                 super.onLocationResult(locationResult);
@@ -113,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
                     if (listAddresses != null && listAddresses.size() > 0) {
                         address = "";
                         if (listAddresses.get(0).getThoroughfare() != null) {
-                            address += listAddresses.get(0).getThoroughfare() + "\n";
+                            address += listAddresses.get(0).getThoroughfare() + ",";
                         }
                         if (listAddresses.get(0).getLocality() != null) {
                             address += listAddresses.get(0).getLocality() + ", ";
@@ -240,48 +279,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-//    private void getData() {
-//        Network.provideApiService().getHistory(Objects.requireNonNull(SessionManager.getUser(this)).getNo_ktp()).enqueue(new Callback<ResponseList<History>>() {
-//            @Override
-//            public void onResponse(Call<ResponseList<History>> call, Response<ResponseList<History>> response) {
-//                if (response.isSuccessful()) {
-//                    if (response.body() != null) {
-//                        if (response.body().getStatus()) {
-//                            if (response.body().getData() != null) {
-//                                List<History> data = response.body().getData();
-//                                historyAdapter.setData(data);
-//
-//                            } else {
-//                                Toast.makeText(MainActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-//                                Log.i("error", "gagal");
-//                            }
-//                        } else {
-//                            Log.i("error", "gagal");
-//                        }
-//                    } else {
-//                        Log.i("error", "gagal");
-//                    }
-//                } else {
-//                    Log.i("error", "gagal");
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<ResponseList<History>> call, Throwable t) {
-//                Log.e("error", t.getLocalizedMessage());
-//            }
-//        });
-//
-//    }
 
-    private void logout() {
-        SessionManager sessionManager = new SessionManager(this);
-        sessionManager.logout(this);
-        startActivity(new Intent(this, LoginActivity.class));
-        finish();
-    }
 
-    private void getCovid() {
+   /* private void getCovid() {
         Network.provideApiService().getCovid().enqueue(new Callback<DataCovid>() {
             @Override
             public void onResponse(Call<DataCovid> call, Response<DataCovid> response) {
@@ -312,6 +312,6 @@ public class MainActivity extends AppCompatActivity {
         activityMainBinding.tvSembuh.setText(dataCovid.getSembuh().toString() + " Jiwa");
         activityMainBinding.tvMeninggal.setText(dataCovid.getMeninggal().toString() + " Jiwa");
         activityMainBinding.tvUpdate.setText(dataCovid.getLastUpdate());
-    }
+    }*/
 
 }

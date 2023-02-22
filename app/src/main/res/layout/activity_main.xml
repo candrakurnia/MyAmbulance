@@ -124,13 +124,13 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:fontFamily="@font/roboto_medium"
-            android:text="Jumlah Covid di Indonesia"
+            android:text="Data Historimu"
             android:textSize="16sp" />
 
-        <androidx.cardview.widget.CardView
+       <!-- <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="10dp"
@@ -266,14 +266,25 @@
 
             </TableLayout>
 
-        </androidx.cardview.widget.CardView>
-        <!--
-                <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/vw"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    tools:listitem="@layout/item_list_history_user" />-->
+        </androidx.cardview.widget.CardView>-->
 
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vw"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/item_list_history_user"/>
+
+        <TextView
+            android:id="@+id/tv_noData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/empty_data"
+            android:text="Tidak Ada Data"
+            android:fontFamily="@font/roboto_medium"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:visibility="gone"
+            />
     </LinearLayout>
 
     <com.google.android.material.button.MaterialButton

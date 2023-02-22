@@ -18,6 +18,7 @@ public class SessionManager {
     private static final String KEY_ID = "key.id";
     private static final String KEY_USER = "key.user";
     private static final String KEY_IS_LOGIN = "key.isLogin";
+    private static final String KEY_IS_PESAN = "key.isPesan";
     private final int MODE_PRIVATE = 0;
 
     @SuppressLint("CommitPrefEdits")
@@ -53,8 +54,15 @@ public class SessionManager {
         getSp(context).edit().putBoolean(KEY_IS_LOGIN, isLogin).apply();
     }
 
+    public static void setIsPesan(Context context, Boolean isPesan) {
+        getSp(context).edit().putBoolean(KEY_IS_PESAN, isPesan).apply();
+    }
+
     public static Boolean getIsLogin(Context context) {
         return getSp(context).getBoolean(KEY_IS_LOGIN, false);
+    }
+    public static Boolean getIsPesan(Context context) {
+        return getSp(context).getBoolean(KEY_IS_PESAN, false);
     }
 
     public void logout(Context context) {
