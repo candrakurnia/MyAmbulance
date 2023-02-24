@@ -9,7 +9,7 @@
     <string name="history_a">Ambulance Gratis yang disediakan oleh pemerintah kota Bandar Lampung untuk memudahkan masyarakat dalam pemesanan Ambulance</string>
     <string name="history_b">Ambulance Gratis yang disediakan oleh pemerintah kota Bandar Lampung untuk memudahkan masyarakat dalam pemesanan Ambulance</string>
     <string name="history_c">Ambulance Gratis yang disediakan oleh pemerintah kota Bandar Lampung untuk memudahkan masyarakat dalam pemesanan Ambulance</string>
-    <string name="lokasi_terkini">Jl. Pelita Jaya No.10 Kecamatan Kedaton, Bandar Lampung, 35142</string>
+    <string name="lokasi_terkini">Sedang Mencari Lokasi...</string>
     <string name="jdl_lokasi">Your Current Location</string>
     <string name="history">Your History</string>
     <string name="btn_ambulance">Call An Ambulance</string>
@@ -20,4 +20,6 @@
     <string name="content">Apakah anda yakin ingin memesan ambulance?</string>
     <string name="location_content">This app wants to change your device settings use GPS,Wi-Fi and cell networks for your location</string>
     <string name="text_onBoarding">Aplikasi yang dibuat untuk memudahkan masyarakat dalam memesan ambulance gratis yang disediakan oleh pemerintah kota Bandar Lampung.</string>
+    <string name="see_more">See More</string>
+    <string name="tidak_ada_data">Tidak Ada Data</string>
 </resources>

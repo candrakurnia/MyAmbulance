@@ -1,6 +1,5 @@
 package com.project.myambulance.remote;
 
-import com.project.myambulance.model.DataCovid;
 import com.project.myambulance.model.Driver;
 import com.project.myambulance.model.History;
 import com.project.myambulance.model.Lokasi;
@@ -19,9 +18,6 @@ public interface Routes {
     @FormUrlEncoded
     @POST(RemoteEndpoint.ENDPOINT_GET_HISTORY)
     Call<ResponseList<History>> getHistory(@Field("no_ktp") String no_ktp);
-
-    @GET(RemoteEndpoint.ENDPOINT_GET_COVID)
-    Call<DataCovid> getCovid();
 
     @FormUrlEncoded
     @POST(RemoteEndpoint.ENDPOINT_LOGIN)

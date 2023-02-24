@@ -29,7 +29,6 @@ import com.google.android.gms.location.LocationServices;
 import com.project.myambulance.adapter.HistoryAdapter;
 import com.project.myambulance.databinding.ActivityMainBinding;
 import com.project.myambulance.helpers.UiHelper;
-import com.project.myambulance.model.DataCovid;
 import com.project.myambulance.model.History;
 import com.project.myambulance.model.Lokasi;
 import com.project.myambulance.model.ResponseList;
